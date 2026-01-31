@@ -1,8 +1,9 @@
 import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, Send, Download as DownloadIcon, Trash2 } from 'lucide-react';
-import { models } from '../models/manifest';
-import { downloadManager, DownloadProgress } from '../services/download';
+import { allModels } from '../models/manifest';
+import type { Model } from '../models/types';
+import { downloadManager, type DownloadProgress } from '../services/download';
 import DownloadProgressCard from '../components/DownloadProgressCard';
 import AnimatedPage from '../components/AnimatedPage';
 import '../styles/text-app.css';
@@ -23,7 +24,7 @@ const TextApp = () => {
   const [pipeline, setPipeline] = useState<any>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  const textModels = models.filter((m) => m.modality === 'text');
+  const textModels = allModels.filter((m: Model) => m.modality === 'text');
 
   useEffect(() => {
     if (textModels.length > 0 && !selectedModel) {
@@ -38,7 +39,7 @@ const TextApp = () => {
   const handleDownloadModel = async () => {
     if (!selectedModel) return;
 
-    const model = models.find((m) => m.id === selectedModel);
+    const model = allModels.find((m: Model) => m.id === selectedModel);
     if (!model) return;
 
     try {
@@ -161,7 +162,7 @@ const TextApp = () => {
               onChange={(e) => setSelectedModel(e.target.value)}
               className="model-select"
             >
-              {textModels.map((model) => (
+              {textModels.map((model: Model) => (
                 <option key={model.id} value={model.id}>
                   {model.name} ({model.size_mb}MB)
                 </option>

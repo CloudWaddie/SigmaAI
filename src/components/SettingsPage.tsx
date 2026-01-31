@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, Trash2, HardDrive, Cpu, Zap, AlertCircle } from 'lucide-react';
-import { cacheManager, CachedModel } from '../services/cache';
+import { cacheManager, type CachedModel } from '../services/cache';
 import { getHardwareProfile, getOptimalBackend } from '../services/hardware';
 import '../styles/settings.css';
 

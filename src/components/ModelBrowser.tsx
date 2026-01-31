@@ -1,8 +1,8 @@
 import { useState, useMemo, useEffect, useRef } from 'react';
-import { Search, Download, Check, HardDrive, Cpu, Zap } from 'lucide-react';
+import { Search, Download, HardDrive, Cpu, Zap } from 'lucide-react';
 import gsap from 'gsap';
-import { models } from '../models/manifest';
-import { Model, Modality } from '../models/types';
+import { allModels } from '../models/manifest';
+import type { Model, Modality } from '../models/types';
 import '../styles/model-browser.css';
 
 type FilterTab = 'all' | Modality;
@@ -17,11 +17,10 @@ const ModelBrowser = ({ filterByModality, onModelSelect }: ModelBrowserProps) =>
   const [activeTab, setActiveTab] = useState<FilterTab>(filterByModality || 'all');
   const [sortBy, setSortBy] = useState<SortOption>('space');
   const [searchQuery, setSearchQuery] = useState('');
-  const [downloadedModels, setDownloadedModels] = useState<Set<string>>(new Set());
   const cardsContainerRef = useRef<HTMLDivElement>(null);
 
   const filteredAndSortedModels = useMemo(() => {
-    let result = [...models];
+    let result = [...allModels];
 
     if (activeTab !== 'all') {
       result = result.filter((model) => model.modality === activeTab);
@@ -152,8 +151,6 @@ const ModelBrowser = ({ filterByModality, onModelSelect }: ModelBrowserProps) =>
 
       <div ref={cardsContainerRef} className="models-grid">
         {filteredAndSortedModels.map((model) => {
-          const isDownloaded = downloadedModels.has(model.id);
-
           return (
             <div
               key={model.id}
@@ -166,12 +163,6 @@ const ModelBrowser = ({ filterByModality, onModelSelect }: ModelBrowserProps) =>
               <div className="model-card-header">
                 <div className="model-name-row">
                   <h3 className="model-name">{model.name}</h3>
-                  {isDownloaded && (
-                    <span className="downloaded-badge">
-                      <Check size={14} />
-                      Downloaded
-                    </span>
-                  )}
                 </div>
                 <span
                   className="model-modality-badge"
@@ -209,12 +200,10 @@ const ModelBrowser = ({ filterByModality, onModelSelect }: ModelBrowserProps) =>
                 <span className="quantization-value">{model.quantization}</span>
               </div>
 
-              {!isDownloaded && (
-                <button className="model-download-btn" onClick={() => onModelSelect?.(model)}>
-                  <Download size={18} />
-                  Download Model
-                </button>
-              )}
+              <button className="model-download-btn" onClick={() => onModelSelect?.(model)}>
+                <Download size={18} />
+                Download Model
+              </button>
             </div>
           );
         })}

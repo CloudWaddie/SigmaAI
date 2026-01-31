@@ -78,7 +78,7 @@ class DownloadManager {
         }
       };
 
-      const model = await pipeline(task, modelId, {
+      const model = await pipeline(task as any, modelId, {
         progress_callback: progressTracker,
       });
 

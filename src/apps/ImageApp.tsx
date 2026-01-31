@@ -1,8 +1,9 @@
 import { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, Upload, Image as ImageIcon, Download as DownloadIcon, X } from 'lucide-react';
-import { models } from '../models/manifest';
-import { downloadManager, DownloadProgress } from '../services/download';
+import { allModels } from '../models/manifest';
+import type { Model } from '../models/types';
+import { downloadManager, type DownloadProgress } from '../services/download';
 import DownloadProgressCard from '../components/DownloadProgressCard';
 import AnimatedPage from '../components/AnimatedPage';
 import '../styles/image-app.css';
@@ -17,7 +18,7 @@ const ImageApp = () => {
   const [pipeline, setPipeline] = useState<any>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const imageModels = models.filter((m) => m.modality === 'image');
+  const imageModels = allModels.filter((m: Model) => m.modality === 'image');
 
   useState(() => {
     if (imageModels.length > 0 && !selectedModel) {
@@ -28,7 +29,7 @@ const ImageApp = () => {
   const handleDownloadModel = async () => {
     if (!selectedModel) return;
 
-    const model = models.find((m) => m.id === selectedModel);
+    const model = allModels.find((m: Model) => m.id === selectedModel);
     if (!model) return;
 
     const taskMap: Record<string, string> = {
@@ -141,7 +142,7 @@ const ImageApp = () => {
               onChange={(e) => setSelectedModel(e.target.value)}
               className="model-select"
             >
-              {imageModels.map((model) => (
+              {imageModels.map((model: Model) => (
                 <option key={model.id} value={model.id}>
                   {model.name} - {model.task} ({model.size_mb}MB)
                 </option>

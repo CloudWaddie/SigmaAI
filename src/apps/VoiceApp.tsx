@@ -1,8 +1,9 @@
 import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, Mic, Square, Play, Download as DownloadIcon } from 'lucide-react';
-import { models } from '../models/manifest';
-import { downloadManager, DownloadProgress } from '../services/download';
+import { allModels } from '../models/manifest';
+import type { Model } from '../models/types';
+import { downloadManager, type DownloadProgress } from '../services/download';
 import DownloadProgressCard from '../components/DownloadProgressCard';
 import AnimatedPage from '../components/AnimatedPage';
 import '../styles/voice-app.css';
@@ -21,8 +22,8 @@ const VoiceApp = () => {
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const audioChunksRef = useRef<Blob[]>([]);
 
-  const asrModels = models.filter((m) => m.modality === 'voice' && m.task.includes('ASR'));
-  const ttsModels = models.filter((m) => m.modality === 'voice' && m.task.includes('TTS'));
+  const asrModels = allModels.filter((m: Model) => m.modality === 'voice' && m.task.includes('ASR'));
+  const ttsModels = allModels.filter((m: Model) => m.modality === 'voice' && m.task.includes('TTS'));
 
   useEffect(() => {
     if (asrModels.length > 0 && !selectedAsrModel) {
@@ -36,7 +37,7 @@ const VoiceApp = () => {
   const handleDownloadAsrModel = async () => {
     if (!selectedAsrModel) return;
 
-    const model = models.find((m) => m.id === selectedAsrModel);
+    const model = allModels.find((m: Model) => m.id === selectedAsrModel);
     if (!model) return;
 
     try {
@@ -55,7 +56,7 @@ const VoiceApp = () => {
   const handleDownloadTtsModel = async () => {
     if (!selectedTtsModel) return;
 
-    const model = models.find((m) => m.id === selectedTtsModel);
+    const model = allModels.find((m: Model) => m.id === selectedTtsModel);
     if (!model) return;
 
     try {
@@ -175,7 +176,7 @@ const VoiceApp = () => {
               onChange={(e) => setSelectedAsrModel(e.target.value)}
               className="model-select"
             >
-              {asrModels.map((model) => (
+              {asrModels.map((model: Model) => (
                 <option key={model.id} value={model.id}>
                   {model.name} ({model.size_mb}MB)
                 </option>
@@ -226,7 +227,7 @@ const VoiceApp = () => {
               onChange={(e) => setSelectedTtsModel(e.target.value)}
               className="model-select"
             >
-              {ttsModels.map((model) => (
+              {ttsModels.map((model: Model) => (
                 <option key={model.id} value={model.id}>
                   {model.name} ({model.size_mb}MB)
                 </option>

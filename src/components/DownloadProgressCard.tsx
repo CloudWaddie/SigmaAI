@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Download, CheckCircle, XCircle, Loader2 } from 'lucide-react';
-import { DownloadProgress } from '../services/download';
+import type { DownloadProgress } from '../services/download';
 import '../styles/download-progress.css';
 
 interface DownloadProgressProps {
@@ -8,14 +8,9 @@ interface DownloadProgressProps {
 }
 
 const DownloadProgressCard = ({ progress }: DownloadProgressProps) => {
-  const [elapsedTime, setElapsedTime] = useState(0);
-
   useEffect(() => {
     if (progress.status === 'downloading') {
-      const interval = setInterval(() => {
-        setElapsedTime((prev) => prev + 1);
-      }, 1000);
-
+      const interval = setInterval(() => {}, 1000);
       return () => clearInterval(interval);
     }
   }, [progress.status]);

@@ -1,4 +1,4 @@
-import { ModelWithScore, VoiceModel, TextModel, ImageModel } from './types';
+import type { ModelWithScore, VoiceModel, TextModel, ImageModel } from './types';
 
 /**
  * Helper function to calculate total requirements score for sorting
