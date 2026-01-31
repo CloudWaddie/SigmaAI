@@ -1,5 +1,6 @@
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect, useRef } from 'react';
 import { Search, Download, Check, HardDrive, Cpu, Zap } from 'lucide-react';
+import gsap from 'gsap';
 import { models } from '../models/manifest';
 import { Model, Modality } from '../models/types';
 import '../styles/model-browser.css';
@@ -17,6 +18,7 @@ const ModelBrowser = ({ filterByModality, onModelSelect }: ModelBrowserProps) =>
   const [sortBy, setSortBy] = useState<SortOption>('space');
   const [searchQuery, setSearchQuery] = useState('');
   const [downloadedModels, setDownloadedModels] = useState<Set<string>>(new Set());
+  const cardsContainerRef = useRef<HTMLDivElement>(null);
 
   const filteredAndSortedModels = useMemo(() => {
     let result = [...models];
@@ -50,6 +52,19 @@ const ModelBrowser = ({ filterByModality, onModelSelect }: ModelBrowserProps) =>
 
     return result;
   }, [activeTab, sortBy, searchQuery]);
+
+  useEffect(() => {
+    if (cardsContainerRef.current) {
+      const cards = cardsContainerRef.current.querySelectorAll('.model-card');
+      gsap.from(cards, {
+        opacity: 0,
+        y: 30,
+        duration: 0.5,
+        stagger: 0.05,
+        ease: 'power2.out',
+      });
+    }
+  }, [filteredAndSortedModels]);
 
   const tabs: { id: FilterTab; label: string }[] = [
     { id: 'all', label: 'All' },
@@ -135,7 +150,7 @@ const ModelBrowser = ({ filterByModality, onModelSelect }: ModelBrowserProps) =>
         </div>
       </div>
 
-      <div className="models-grid">
+      <div ref={cardsContainerRef} className="models-grid">
         {filteredAndSortedModels.map((model) => {
           const isDownloaded = downloadedModels.has(model.id);
 

@@ -4,6 +4,7 @@ import { ArrowLeft, Upload, Image as ImageIcon, Download as DownloadIcon, X } fr
 import { models } from '../models/manifest';
 import { downloadManager, DownloadProgress } from '../services/download';
 import DownloadProgressCard from '../components/DownloadProgressCard';
+import AnimatedPage from '../components/AnimatedPage';
 import '../styles/image-app.css';
 
 const ImageApp = () => {
@@ -116,14 +117,15 @@ const ImageApp = () => {
   };
 
   return (
-    <div className="image-app">
-      <button className="back-button" onClick={() => navigate('/')}>
-        <ArrowLeft size={20} />
-        Back to Home
-      </button>
+    <AnimatedPage>
+      <div className="image-app">
+        <button className="back-button" onClick={() => navigate('/')}>
+          <ArrowLeft size={20} />
+          Back to Home
+        </button>
 
-      <h1 className="image-app-title">Image App</h1>
-      <p className="image-app-subtitle">Analyze and understand images with vision models</p>
+        <h1 className="image-app-title">Image App</h1>
+        <p className="image-app-subtitle">Analyze and understand images with vision models</p>
 
       {downloadProgress && <DownloadProgressCard progress={downloadProgress} />}
 
@@ -206,6 +208,8 @@ const ImageApp = () => {
         )}
       </div>
     </div>
+    </div>
+    </AnimatedPage>
   );
 };
 

@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, Mic, Square, Play, Download as DownloadIcon } from 'lucide-react';
 import { models } from '../models/manifest';
 import { downloadManager, DownloadProgress } from '../services/download';
-import DownloadProgressCard from './DownloadProgressCard';
+import DownloadProgressCard from '../components/DownloadProgressCard';
+import AnimatedPage from '../components/AnimatedPage';
 import '../styles/voice-app.css';
 
 const VoiceApp = () => {
@@ -150,13 +151,14 @@ const VoiceApp = () => {
   };
 
   return (
-    <div className="voice-app">
-      <button className="back-button" onClick={() => navigate('/')}>
-        <ArrowLeft size={20} />
-        Back to Home
-      </button>
+    <AnimatedPage>
+      <div className="voice-app">
+        <button className="back-button" onClick={() => navigate('/')}>
+          <ArrowLeft size={20} />
+          Back to Home
+        </button>
 
-      <h1 className="voice-app-title">Voice App</h1>
+        <h1 className="voice-app-title">Voice App</h1>
       <p className="voice-app-subtitle">Speech-to-Text and Text-to-Speech with Transformers</p>
 
       {downloadProgress && <DownloadProgressCard progress={downloadProgress} />}
@@ -258,6 +260,7 @@ const VoiceApp = () => {
         </div>
       </div>
     </div>
+    </AnimatedPage>
   );
 };
 

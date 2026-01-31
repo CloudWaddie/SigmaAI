@@ -4,6 +4,7 @@ import { ArrowLeft, Send, Download as DownloadIcon, Trash2 } from 'lucide-react'
 import { models } from '../models/manifest';
 import { downloadManager, DownloadProgress } from '../services/download';
 import DownloadProgressCard from '../components/DownloadProgressCard';
+import AnimatedPage from '../components/AnimatedPage';
 import '../styles/text-app.css';
 
 interface Message {
@@ -126,15 +127,16 @@ const TextApp = () => {
   };
 
   return (
-    <div className="text-app">
-      <button className="back-button" onClick={() => navigate('/')}>
-        <ArrowLeft size={20} />
-        Back to Home
-      </button>
+    <AnimatedPage>
+      <div className="text-app">
+        <button className="back-button" onClick={() => navigate('/')}>
+          <ArrowLeft size={20} />
+          Back to Home
+        </button>
 
-      <div className="text-app-header">
-        <div>
-          <h1 className="text-app-title">Text App</h1>
+        <div className="text-app-header">
+          <div>
+            <h1 className="text-app-title">Text App</h1>
           <p className="text-app-subtitle">Chat with language models running locally</p>
         </div>
         {messages.length > 0 && (
@@ -236,6 +238,8 @@ const TextApp = () => {
         </div>
       </div>
     </div>
+    </div>
+    </AnimatedPage>
   );
 };
 
