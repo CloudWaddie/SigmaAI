@@ -18,7 +18,7 @@
 
 .browser-subtitle {
   font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(229, 229, 231, 1);
 }
 
 .browser-controls {
@@ -38,15 +38,15 @@
   left: 1rem;
   top: 50%;
   transform: translateY(-50%);
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(180, 180, 190, 1);
   pointer-events: none;
 }
 
 .search-input {
   width: 100%;
   padding: 0.875rem 1rem 0.875rem 3rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(30, 30, 42, 0.9);
+  border: 1px solid rgba(139, 92, 246, 0.3);
   border-radius: 12px;
   color: #fff;
   font-size: 1rem;
@@ -55,12 +55,12 @@
 
 .search-input:focus {
   outline: none;
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(36, 36, 48, 0.95);
+  border-color: rgba(139, 92, 246, 0.5);
 }
 
 .search-input::placeholder {
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(160, 160, 171, 1);
 }
 
 .filter-tabs {
@@ -72,10 +72,10 @@
 
 .filter-tab {
   padding: 0.75rem 1.5rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(30, 30, 42, 0.9);
+  border: 1px solid rgba(139, 92, 246, 0.3);
   border-radius: 8px;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(229, 229, 231, 1);
   font-size: 0.95rem;
   font-weight: 500;
   cursor: pointer;
@@ -84,8 +84,8 @@
 }
 
 .filter-tab:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(139, 92, 246, 0.3);
+  border-color: rgba(139, 92, 246, 0.4);
   color: #fff;
 }
 
@@ -102,7 +102,7 @@
 }
 
 .sort-label {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(229, 229, 231, 1);
   font-size: 0.95rem;
   white-space: nowrap;
 }
@@ -110,8 +110,8 @@
 .sort-select {
   flex: 1;
   padding: 0.75rem 1rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(30, 30, 42, 0.9);
+  border: 1px solid rgba(139, 92, 246, 0.3);
   border-radius: 8px;
   color: #fff;
   font-size: 0.95rem;
@@ -121,8 +121,8 @@
 
 .sort-select:focus {
   outline: none;
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(36, 36, 48, 0.95);
+  border-color: rgba(139, 92, 246, 0.5);
 }
 
 .sort-select option {
@@ -137,8 +137,8 @@
 }
 
 .model-card {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(26, 26, 36, 0.8);
+  border: 1px solid rgba(139, 92, 246, 0.3);
   border-radius: 12px;
   padding: 1.5rem;
   cursor: pointer;
@@ -150,8 +150,8 @@
 
 .model-card:hover {
   transform: translateY(-4px);
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(30, 30, 42, 0.9);
+  border-color: rgba(139, 92, 246, 0.4);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
@@ -201,7 +201,7 @@
 }
 
 .model-description {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(229, 229, 231, 1);
   font-size: 0.9rem;
   line-height: 1.5;
   margin: 0;
@@ -212,12 +212,12 @@
   align-items: center;
   gap: 0.5rem;
   font-size: 0.875rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(200, 200, 210, 1);
 }
 
 .model-task-label {
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(245, 245, 247, 1);
 }
 
 .model-requirements {
@@ -231,9 +231,9 @@
   align-items: center;
   gap: 0.375rem;
   padding: 0.5rem 0.75rem;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(30, 30, 42, 0.9);
   border-radius: 6px;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(245, 245, 247, 1);
   font-size: 0.85rem;
 }
 
@@ -251,7 +251,7 @@
 
 .quantization-label {
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(245, 245, 247, 1);
 }
 
 .quantization-value {
@@ -289,7 +289,7 @@
 .empty-state {
   text-align: center;
   padding: 4rem 2rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(180, 180, 190, 1);
   font-size: 1.1rem;
 }
 

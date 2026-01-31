@@ -14,7 +14,7 @@
 
 .image-app-subtitle {
   font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(229, 229, 231, 1);
   margin-bottom: 2rem;
 }
 
@@ -25,8 +25,8 @@
 }
 
 .image-section {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(26, 26, 36, 0.8);
+  border: 1px solid rgba(139, 92, 246, 0.3);
   border-radius: 12px;
   padding: 2rem;
 }
@@ -41,18 +41,18 @@
   align-items: center;
   justify-content: center;
   padding: 4rem 2rem;
-  background: rgba(255, 255, 255, 0.03);
-  border: 2px dashed rgba(255, 255, 255, 0.2);
+  background: rgba(26, 26, 36, 0.8);
+  border: 2px dashed rgba(139, 92, 246, 0.4);
   border-radius: 12px;
   cursor: pointer;
   transition: all 0.3s ease;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(200, 200, 210, 1);
 }
 
 .upload-dropzone:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.4);
-  color: rgba(255, 255, 255, 0.8);
+  background: rgba(30, 30, 42, 0.9);
+  border-color: rgba(160, 160, 171, 1);
+  color: rgba(245, 245, 247, 1);
 }
 
 .upload-text {
@@ -62,7 +62,7 @@
 
 .upload-hint {
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(160, 160, 171, 1);
   margin: 0;
 }
 
@@ -140,8 +140,8 @@
 }
 
 .analysis-output {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(30, 30, 42, 0.9);
+  border: 1px solid rgba(139, 92, 246, 0.3);
   border-radius: 8px;
   padding: 1.5rem;
   max-height: 400px;
@@ -163,17 +163,17 @@
 }
 
 .analysis-output::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(30, 30, 42, 0.9);
   border-radius: 4px;
 }
 
 .analysis-output::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(139, 92, 246, 0.4);
   border-radius: 4px;
 }
 
 .analysis-output::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(139, 92, 246, 0.5);
 }
 
 @media (max-width: 768px) {
