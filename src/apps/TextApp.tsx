@@ -238,7 +238,6 @@ const TextApp = () => {
         </div>
       </div>
     </div>
-    </div>
     </AnimatedPage>
   );
 };

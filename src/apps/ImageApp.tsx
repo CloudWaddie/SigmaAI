@@ -208,7 +208,6 @@ const ImageApp = () => {
         )}
       </div>
     </div>
-    </div>
     </AnimatedPage>
   );
 };
